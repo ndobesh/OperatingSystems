@@ -1,22 +1,36 @@
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ScheduleSimulator {
-    public static void main(String[] args) throws IOException {
+    public static void main(String args[]) {
 
+        /**
+         * Articulate constructor that reads the process data from a file.
+         *
+         * @param filename
+         *            A File object to read data from
+         */
+        ScheduleSimulator(File filename) {
+            activeJob = null;
+            Process proc = null;
+            String s = null;
+            long b = 0, d = 0, p = 0;
+            try {
+                BufferedReader input = new BufferedReader(new FileReader(filename));
+                while ((s = input.readLine()) != null) {
+                    StringTokenizer st = new StringTokenizer(s);
+                    b = Long.parseLong(st.nextToken());
+                    d = Long.parseLong(st.nextToken());
+                    p = Long.parseLong(st.nextToken());
+                    proc = new Process(b, d, p);
+                    allProcs.add(proc);
+                }
 
-        /*Read from file code from:
-        https://stackoverflow.com/questions/5343689/java-reading-a-file-into-an-arraylist */
-        Scanner scan = new Scanner(new File("C:/Users/Administrator/Desktop/data0"));
-        ArrayList<String> list = new ArrayList<>();
-        while (scan.hasNext()) {
-            list.add(scan.next());
+            } catch (FileNotFoundException fnfe) {
+            } catch (IOException ioe) {
+            }
+            LoadJobQueue(allProcs);
         }
 
-        System.out.println(list);
-        scan.close();
 
     }
 }
