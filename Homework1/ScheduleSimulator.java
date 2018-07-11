@@ -1,13 +1,22 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Scheduler {
-    public static void main( String [] args) {
+public class ScheduleSimulator {
+    public static void main(String[] args) throws IOException {
 
 
         /*Read from file code from:
-        https://stackoverflow.com/questions/19844649/java-read-file-and-store-text-in-an-array */
-        String toBeQueue = "";
+        https://stackoverflow.com/questions/5343689/java-reading-a-file-into-an-arraylist */
+        Scanner scan = new Scanner(new File("C:/Users/Administrator/Desktop/data0"));
+        ArrayList<String> list = new ArrayList<>();
+        while (scan.hasNext()) {
+            list.add(scan.next());
+        }
 
-        Scanner inFile1 = new Scanner(new File("KeyWestTemp.txt")).useDelimiter(",\\s*");
+        System.out.println(list);
+        scan.close();
+
     }
 }
