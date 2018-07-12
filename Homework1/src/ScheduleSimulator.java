@@ -29,13 +29,21 @@ public class ScheduleSimulator {
             }
             reader.close();
 
-            /*for debugging purposes*/
             for (String listOfProcess : listOfProcesses) {
-                System.out.println(listOfProcess);
+                //System.out.println(listOfProcess);
+                LinkedList<Integer> proc = new LinkedList<>();
+                String[] a = listOfProcess.split(" ");
+                System.out.println(a);
+                for(int i = 1; i < a.length; i++) {
+                    proc.add(Integer.getInteger(a[i]));
+                }
             }
         } catch (Exception e) {
             System.out.println("File cannot be found!!");
         }
+
+        //Ready queue implementation
+
 
 
 //        List of CPUs - Determined by # of running CPUs
