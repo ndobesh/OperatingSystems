@@ -39,12 +39,12 @@ public class ScheduleSimulator {
 
 
 //        List of CPUs - Determined by # of running CPUs
-        Scanner input = new Scanner(System.in);
+        /*Scanner input = new Scanner(System.in);
         System.out.print("How many CPUs should there be? ");
         int numofCPUs = input.nextInt();
         ArrayList<Queue> CPUtemplate = new ArrayList<>();
 
-        for(int i = 0; i < numofCPUs; i++){
+        for(int i = 0; i < numofCPUs; i++){*/
 
         }
 
@@ -82,4 +82,3 @@ public class ScheduleSimulator {
 
 
     }
-}
